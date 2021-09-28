@@ -4,6 +4,7 @@ import Menu from '../components/Menu';
 import SideBar from './sideBar';
 import { Button, Table , Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import Modal from '../components/produtos/modal/Modal';
+import ModalExcluir from '../components/produtos/modal/ModalExcluir';
 
 
 const altura = {
@@ -18,21 +19,31 @@ const Produtos = (data ) => (
         <SideBar></SideBar>
         <div className=" h-100 m-3"> 
           <div>
-            <Modal>
-            </Modal>
+            <div class="container">
+              <div class="row">
+                <div class="col-9">
+                <Modal></Modal>
+                </div>
+                <div class="col">
+                <ModalExcluir />
+                </div>
+              </div>
+            </div>
+        
+           
             <Table bordered>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>id </th>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Valor</th>
                 </tr>
               </thead>
               <tbody>
                   { data.response.home.map(home => (
                         <tr>
-                          <td className="d-none">{home._id}</td>
+                          <td >{home._id}</td>
                           <td>{home.nomeproduto}</td>
                           <td>{home.valor}</td>
                           <td>{home.tipo}</td>
@@ -78,7 +89,7 @@ const Produtos = (data ) => (
 //recebendo dados da api
 Produtos.getInitialProps = async () => {
   var response = await axios.get('http://localhost:8080/home');
-
+  
   return {response: response.data }
 }
 export default Produtos;

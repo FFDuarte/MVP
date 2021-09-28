@@ -3,9 +3,9 @@ import { Button, Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import Axios from 'axios';
 
 
-
-
 class Cadastro extends Component {
+
+ 
   state = {
     nomeproduto: '',
     valor: '',
@@ -52,9 +52,8 @@ class Cadastro extends Component {
               onChange={(ev) => this.onChangeInput("tipo", ev)}
               />
             </FormGroup>
-            <Button >Cadastrar</Button>     
+            <Button  >Cadastrar</Button>     
           </Form>
-  
     </div>
     )
   }
