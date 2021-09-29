@@ -41,44 +41,16 @@ const Produtos = (data ) => (
                 </tr>
               </thead>
               <tbody>
-                  { data.response.home.map(home => (
+                  { console.log(data),data.response.home.map(home => (
                         <tr>
-                          <td >{home._id}</td>
+                          <td key={home._id}>{home._id}</td>
                           <td>{home.nomeproduto}</td>
                           <td>{home.valor}</td>
                           <td>{home.tipo}</td>
                         </tr>
                     ))
                   }   
-                <Pagination size="sm" aria-label="Page navigation example">
-                  <PaginationItem>
-                    <PaginationLink first href="#" />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink previous href="#" />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">
-                      1
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">
-                      2
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">
-                      3
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink next href="#" />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink last href="#" />
-                  </PaginationItem>
-                </Pagination>
+               
               </tbody>
             </Table>
           </div>  
@@ -92,4 +64,9 @@ Produtos.getInitialProps = async () => {
   
   return {response: response.data }
 }
+
+
+
+
 export default Produtos;
+
